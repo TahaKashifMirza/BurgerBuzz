@@ -1,0 +1,162 @@
+/* Analysis Section Styling */
+.analysis-section {
+    background: linear-gradient(135deg, #f39600 0%, #d9e2ec 100%); /* Lighter, calming gradient */
+    padding: 80px 0;
+    text-align: center;
+    overflow: hidden; /* Prevent overflow on small screens */
+    position: relative;
+}
+
+.analysis-section::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 10%, transparent 90%);
+    z-index: 0;
+    animation: backgroundRotate 15s infinite linear; /* Moving gradient for added depth */
+}
+
+@keyframes backgroundRotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.analysis-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 20px;
+    gap: 30px;
+    z-index: 1; /* Bring the content on top of the background */
+}
+
+.box {
+    flex: 1;
+    background: #fff;
+    padding: 60px 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.2) 20%, transparent 80%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.box:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+.box:hover::before {
+    opacity: 1;
+}
+
+/* Count and Label Styling */
+.count {
+    font-size: 55px;
+    font-weight: 800;
+    background: linear-gradient(90deg, #ff6b6b, #ffcc00);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.label {
+    font-size: 20px;
+    color: #4a5568; /* Darker for readability */
+    margin-top: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+/* Unique Background Colors for Each Box */
+.box1 {
+    background: linear-gradient(135deg, #bddae7, #ffcccb); /* Soft red-orange gradient */
+}
+
+.box2 {
+    background: linear-gradient(135deg, #d2f5f0, #a7e8df); /* Soothing aqua gradient */
+}
+
+.box3 {
+    background: linear-gradient(135deg, #f7f1d5, #f0e68c); /* Light yellow gradient */
+}
+
+.box4 {
+    background: linear-gradient(135deg, #e0e7ff, #b0c4de); /* Calm blue gradient */
+}
+
+/* Animation on scroll */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.analysis-section {
+    opacity: 0;
+    animation: fadeInUp 1.2s ease forwards;
+}
+
+.analysis-container {
+    animation-delay: 0.3s;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .analysis-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .box {
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .count {
+        font-size: 45px;
+    }
+
+    .label {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .count {
+        font-size: 38px;
+    }
+
+    .label {
+        font-size: 16px;
+    }
+}

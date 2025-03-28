@@ -1,0 +1,130 @@
+/* Header.css */
+
+.header {
+  background: rgba(0, 0, 0, 0.7); /* Dark glassy background */
+  backdrop-filter: blur(10px); /* Blur effect */
+  color: #ffffff; /* White text */
+  padding: 10px 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Add box shadow for depth */
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.headercontainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.header__logo img {
+  height: 60px; /* Increased logo size */
+  cursor: pointer;
+  filter: drop-shadow(3px 2px 5px red);
+}
+
+.header__nav {
+  display: flex;
+  justify-content: center;
+  font-style: italic;
+  font-family: 'antony';
+  align-items: center;
+  font-size: 1rem; /* Slightly smaller font size */
+}
+
+.header__nav ul {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.header__nav ul li {
+  margin-right: 20px;
+}
+
+.header__nav ul li:last-child {
+  margin-right: 0;
+}
+
+.header__nav ul li a {
+  cursor: pointer;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 10px 15px;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.header__nav ul li a:hover,
+.header__nav ul li a.active {
+  color: #f39600f3; /* Yellow highlight on hover or active */
+  border-bottom: 2px solid #f39600f3; /* Yellow underline on hover or active */
+}
+
+.header__menu-toggle {
+  display: none; /* Hide by default */
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #ffffff; /* White lines for hamburger */
+  margin: 5px 0;
+  transition: transform 0.3s ease;
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+@media (max-width: 768px) {
+  .header__nav {
+    display: none; /* Hide nav items by default on small screens */
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.9); /* Darker glassy background for mobile */
+    backdrop-filter: blur(15px); /* Stronger blur effect for mobile */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .header__nav ul {
+    flex-direction: column; /* Change direction to column */
+  }
+
+  .header__nav ul li {
+    margin: 10px 0; /* Adjust margin for vertical alignment */
+  }
+
+  .header__nav.open {
+    display: flex; /* Show nav items when menu is open */
+  }
+
+  .header__menu-toggle {
+    display: block; /* Show hamburger menu toggle */
+    cursor: pointer;
+  }
+}

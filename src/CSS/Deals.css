@@ -1,0 +1,179 @@
+/* General container settings */
+.deals-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for larger screens */
+    gap: 40px; /* Increased space between deal items for a cleaner look */
+    padding: 60px 20px; /* Add more padding around the container */
+    max-width: 1300px; /* Limit width for better readability */
+    margin: 0 auto; /* Center container */
+    justify-content: center;
+    background-image: url('/Images/BG.jpg'); /* Full-screen background image */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Individual Deal Item */
+.deal-item {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    border-radius: 20px; /* Softer border radius */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Elevated shadow for elegance */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    height: 400px; /* Increased height for a balanced look */
+}
+
+/* Background images for each deal */
+.deal-item:nth-child(1) {
+    background-image: url('/Images/H4.jpg'); /* Add specific background images */
+}
+
+.deal-item:nth-child(2) {
+    background-image: url('/Images/H4.jpg');
+}
+
+.deal-item:nth-child(3) {
+    background-image: url('/Images/H4.jpg');
+}
+
+.deal-item:nth-child(4) {
+    background-image: url('/Images/H4.jpg');
+}
+
+/* Text Styling for Deals */
+.deal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #ffffff;
+    padding: 25px;
+    background: rgba(0, 0, 0, 0.603); /* Lighter background for a more professional look */
+    border-radius: 15px;
+    width: 80%;
+    transition: background 0.3s ease;
+}
+
+.deal-content h1 {
+    font-size: 2.2rem; /* Larger, elegant font size */
+    color: #ff6600; /* A bold, professional color */
+    font-weight: 700;
+    margin-bottom: 10px;
+    font-style: italic;
+    font-family: 'Antony'; /* Use modern sans-serif fonts */
+}
+
+.deal-content h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    font-family: 'Montserrat';
+    color: #eeeeee; /* Darker heading color for contrast */
+}
+
+.deal-content p {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+    font-family: 'Roboto';
+    color: #fceeee; /* Soft text color for better readability */
+}
+
+.deal-content h3 {
+    font-size: 1.5rem;
+    color: #ff6600; /* Make the price stand out */
+    background-color: #f5f5f5; /* Lighter background for contrast */
+    border-radius: 50px;
+    font-weight: bold;
+    padding: 5px 15px;
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Hover Effects */
+.deal-item:hover {
+    transform: scale(1.07); /* More pronounced zoom effect */
+    box-shadow: 0 30px 50px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+}
+
+.deal-item:hover .deal-content {
+    background: rgba(19, 19, 19, 0.9); /* Slightly lighter background on hover */
+}
+
+/* Button Styling */
+.order-btn {
+    position: absolute;
+    bottom: -50px; /* Hidden initially */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ff6600; /* Bold button color */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: all 0.4s ease;
+    z-index: 3;
+    opacity: 0;
+}
+
+.deal-item:hover .order-btn {
+    bottom: 30px; /* Visible on hover */
+    opacity: 1; /* Fade in */
+}
+
+.order-btn:hover {
+    transform: translate(-50%, -10px) scale(1.05); /* Slight lift and scale */
+    background-color: #ff4500; /* Darker shade on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Button shadow */
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .deals-container {
+        grid-template-columns: 1fr; /* Stack items in one column */
+    }
+
+    .deal-item {
+        height: 300px; /* Adjust height for medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .deal-item {
+        height: 250px; /* Adjust height for small screens */
+    }
+
+    .deal-content {
+        width: 90%; /* Increase width for better text readability */
+        font-size: 14px; /* Reduce text size */
+    }
+
+    .order-btn {
+        font-size: 14px;
+        padding: 12px 20px; /* Smaller button */
+    }
+}
+
+@media (max-width: 480px) {
+    .deal-item {
+        height: 200px; /* Reduce height for mobile */
+    }
+
+    .deal-content h1 {
+        font-size: 18px;
+    }
+
+    .deal-content h2, .deal-content p, .deal-content h3 {
+        font-size: 14px;
+    }
+
+    .order-btn {
+        font-size: 12px;
+        padding: 10px 15px;
+    }
+}

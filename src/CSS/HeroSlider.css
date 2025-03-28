@@ -1,0 +1,151 @@
+/* Ensure no gap and full screen width */
+.hero-slider {
+  position: relative;
+  width: 100vw; /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ensure each slide takes up full screen */
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: opacity 1s ease-in-out, transform 1.2s ease-in-out; /* Add smooth zoom effect */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  opacity: 0; /* Hidden by default */
+  transform: scale(1); /* Default scale */
+}
+
+.slide.active {
+  opacity: 1;
+  transform: scale(1.05); /* Slight zoom effect when active */
+}
+
+.text-content {
+  color: #ffffff;
+  text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.75); /* Stronger text-shadow for better readability */
+  max-width: 75%; /* Limit text width for better readability */
+  animation: textEnter 1.5s ease-in-out forwards, textExit 1.5s ease-in-out reverse;
+  z-index: 1; /* Ensure text stays on top of everything */
+}
+
+.text-content h1 {
+  font-size: 5rem;
+  font-family: 'antony'; /* Modern font choice */
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.text-content p {
+  font-size: 2.5rem;
+  font-family: antony;
+  margin-bottom: 1.5rem;
+}
+
+/* Call-to-action button (optional) */
+.cta-button {
+  position: absolute;
+  bottom: -50px; /* Hidden initially */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ff6600; /* Bold button color */
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 30px;
+}
+
+.cta-button:hover {
+    background-color: #ff4500; /* Darker shade on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Button shadow */
+}
+
+/* Animation for text appearance (from top) */
+@keyframes textEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px); /* Start from above */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* End in place */
+  }
+}
+
+/* Animation for text disappearance (to bottom) */
+@keyframes textExit {
+  0% {
+    opacity: 1;
+    transform: translateY(0); /* Start in place */
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(50px); /* Move down */
+  }
+}
+
+/* Make sure there's no unwanted margins or paddings on body */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 1024px) {
+  .text-content h1 {
+    font-size: 3.5rem;
+  }
+
+  .text-content p {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-slider {
+    height: 70vh; /* Reduced height for medium screens */
+  }
+
+  .text-content h1 {
+    font-size: 2.5rem; /* Smaller font for medium screens */
+  }
+
+  .text-content p {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-slider {
+    height: 60vh; /* Reduced height for mobile devices */
+  }
+
+  .text-content h1 {
+    font-size: 2rem; /* Adjusted font size for smaller devices */
+  }
+
+  .text-content p {
+    font-size: 1rem;
+  }
+
+  .cta-button {
+    padding: 0.75rem 1.5rem; /* Smaller padding for the button */
+    font-size: 1rem;
+  }
+}
